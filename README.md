@@ -37,38 +37,64 @@ Stores employee data used for testing PL/SQL operations.
 
 PLSQL_Collections_Records_GOTO_Repo/
 ├── README.md                  ← Project overview (this file)
+
 ├── DOCUMENTATION.md           ← Detailed explanation & assessment checklist
+
 ├── sql/
 │   ├── create_schema.sql      ← Creates employees table
+
 │   ├── seed_data.sql          ← Inserts test data
+
 │   └── cleanup.sql            ← Drops objects after demo
+
 ├── plsql/
+
 │   ├── examples_collections.sql ← Demonstrates arrays and bulk collect
+
 │   ├── examples_records.sql     ← Demonstrates various record types
+
 │   ├── examples_goto.sql        ← Shows safe GOTO usage
+
 │   └── package_demo.sql         ← Combines logic into one package
+
 ├── tests/
+
 │   ├── run_examples.sql        ← Runs all scripts sequentially
+
 │   └── expected_output.txt     ← Expected DBMS_OUTPUT results
+
 └── docs_assets/ (optional)
+
     └── diagrams.png
+    
 # Run setup scripts in order:
 
 @sql/create_schema.sql
+
 @sql/seed_data.sql
+
 @plsql/examples_collections.sql
+
 @plsql/examples_records.sql
+
 @plsql/examples_goto.sql
+
 @plsql/package_demo.sql
 
 # View results:
+
 Make sure output is enabled:
+
 SET SERVEROUTPUT ON;
+
 Expected outputs are stored in:
+
 tests/expected_output.txt
 
 # Cleanup (optional):
+
 @sql/cleanup.sql
+
 
 # Key Learning Outcomes
 | PL/SQL Concept            | Demonstrated In          | Description                              |
@@ -84,17 +110,29 @@ tests/expected_output.txt
 | **Packages**              | package_demo.sql         | Encapsulation and modular design         |
 
 # Sample Output
+
 Assoc array - Kigali pop: 1200000
+
 VARRAY total = 60
+
 Nested table original elements:
+
   nt(1) = 5
+  
   nt(3) = 15
+  
 BULK_COLLECT fetched 2 salary rows for dept 1
+
 Table-based record: Alice Mugisha salary=5000
+
 Cursor row: id=1 name=Alice salary=5000
+
 Counter reached 3, jumping to skip_message label
+
 Arrived at skip_message label. counter = 3
+
 hr_demo_pkg.demo_all -> Pkg Employee salaries count=3
+
 
 ## ⚠️ Notes
 
